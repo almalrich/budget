@@ -1,6 +1,6 @@
 var recette;
 var depense;
-
+var i;
 var fixe = ["loyer et charge", "remboursement de credit", "eau gaz electricité", "telephone internet", "assurance habitation", "assurance véhicules", "mutuelle santé", "frais de garde", "impôts sur le revenu", "impôts locaux"];
 
 fixe[0] = 350;
@@ -27,7 +27,7 @@ var occasionnelles = ["sorties mois", "autre depense"];
 occasionnelles[0] = 150;
 occasionnelles[1] = 200;
 
-var i;
+
 
 
 var depensefix = document.getElementById("fix").innerHTML = fixe[0] + fixe[1] + fixe[2] + fixe[3] + fixe[4] + fixe[5] + fixe[6] + fixe[7] + fixe[8] + fixe[9];
@@ -52,9 +52,17 @@ document.getElementById("depensesfix").innerHTML = 350+50+100+60+50+50+15+15+150
 
 
 document.getElementById("occas").innerHTML = occasionnelles[i] + " 150euro "+occasionnelles[i+1] + "  200euro " ;
-
 */
 
+function total()
+{
+    var temporaire = 0; // Tu commences avec un total de 0
+    for (var i = 0; i < tonTableau.length; i++)
+    {
+        temporaire += tonTableau[i]; // tu additionnes la valeur à ta variable temporaire à chaque "tour de boucle"
+    }
+    return temporaire; // ta fonction "total" te retourne un chiffre qui est égal à toutes les valeurs de ton tableau additionnées
+}
 
 
 
