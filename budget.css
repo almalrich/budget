@@ -1,0 +1,29 @@
+#depensesfix {
+    top: 10%;
+    position: absolute;
+    margin-left: 0%;
+    left: 0%;
+}
+
+#couran {
+    top: 10%;
+    position: absolute;
+
+    left: 40%;
+
+}
+
+#occas {
+    top: 10%;
+    position: absolute;
+    margin-right: 0%;
+    right: 0%;
+}
+
+#dep {
+    position: absolute;
+    left: 0%;
+    margin-top: 15%;
+
+}
+
