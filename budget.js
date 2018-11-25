@@ -1,7 +1,7 @@
-var recette;
+var recette;/*je créer variable and tab*/
 var depense;
 var fixe = ["loyer et charge", "remboursement de credit", "eau gaz electricité", "telephone internet", "assurance habitation", "assurance véhicules", "mutuelle santé", "frais de garde", "impôts sur le revenu", "impôts locaux"];
-var x;
+/*je renseigne leur valeur en decimal pour les somme*/
 fixe[0] = 350;
 fixe[1] = 50;
 fixe[2] = 100;
@@ -42,6 +42,10 @@ function total()
     for (var i = 0; i < occasionnelles.length; i++)
     {
         document.getElementById("occa").innerHTML= temporaire += occasionnelles[i];
+        document.getElementById("ok").addEventListener("click", function (){
+            occasionnelles.push(document.getElementById(i+total()));
+
+        })
     }
     return temporaire;
 }
@@ -71,19 +75,22 @@ document.getElementById("dep").innerHTML = "total des dépences:"+ depense;
 
 
 
-var recet = ["salaires" , "aides/allocations" , "rentes" , "autre"];
+let recet = ["salaires" , "aides/allocations" , "rentes" , "autre"];
 recet[0] = 1900;
 recet[1] = 0;
 recet[2] = 150;
 recet[3] = 0;
-
+let y;
 function rec()
 {
     var temporaire = 0;
     for (var l = 0; l < recet.length; l++)
     {
         document.getElementById("rec").innerHTML= temporaire += recet[l];
-    }
+        document.getElementById("oki").addEventListener("click",function (){
+            document.getElementById("re").value=l
+        occasionnelles.push(document.getElementById(l+rec()));
+    })};
     return temporaire;
 }
 
@@ -104,15 +111,16 @@ document.getElementById("rest").innerHTML = recette-depense;
 
 document.getElementById("ok").addEventListener("click", function () {
 
-    var y =document.getElementById("depe").value;
+    let y =document.getElementById("depe").value;
 
     if (y!==""){
-        occasionnelles.push("y");
-        document.getElementById("occa").innerHTML=total();
-        depense=depense+y;
-        console.log("depense");
 
+        document.getElementById("depe").innerHTML=(depense=depense+y);
+
+        console.log("depense");
+        total()
 
     }
 });
+
 total();
