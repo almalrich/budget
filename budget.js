@@ -1,8 +1,7 @@
 var recette;
 var depense;
-var i;
 var fixe = ["loyer et charge", "remboursement de credit", "eau gaz electricité", "telephone internet", "assurance habitation", "assurance véhicules", "mutuelle santé", "frais de garde", "impôts sur le revenu", "impôts locaux"];
-
+var x;
 fixe[0] = 350;
 fixe[1] = 50;
 fixe[2] = 100;
@@ -35,34 +34,85 @@ var depensefix = document.getElementById("fix").innerHTML = fixe[0] + fixe[1] + 
 var depensecour = document.getElementById("courant").innerHTML = courantes[0] + courantes[1] + courantes[2];
 
 
-for (i = 0; i < occasionnelles.length; i++) {
-    var depenseocca = document.getElementById("occa").innerHTML = occasionnelles[0] + occasionnelles[1];
-}
 
-depense = depensefix + depensecour + depenseocca;
-
-document.getElementById("dep").innerHTML = "total des dépences:"+ depense;
-
-/*
-document.getElementById("fix").innerHTML = fixe[i]+" 350euro "+fixe[i+1]+" 50euro "+fixe[i+2]+" 100euro "+fixe[i+3]+" 60euro "+fixe[i+4]+" 50euro "+fixe[i+5]+" 50euro "+fixe[i+6]+" 15euro "+fixe[i+7]+" 15euro "+fixe[i+8]+" 150euro "+fixe[i+9]+" 150euro ";
-
-
-
-document.getElementById("depensesfix").innerHTML = 350+50+100+60+50+50+15+15+150+150;
-
-
-document.getElementById("occas").innerHTML = occasionnelles[i] + " 150euro "+occasionnelles[i+1] + "  200euro " ;
-*/
 
 function total()
 {
-    var temporaire = 0; // Tu commences avec un total de 0
-    for (var i = 0; i < tonTableau.length; i++)
+    var temporaire = 0;
+    for (var i = 0; i < occasionnelles.length; i++)
     {
-        temporaire += tonTableau[i]; // tu additionnes la valeur à ta variable temporaire à chaque "tour de boucle"
+        document.getElementById("occa").innerHTML= temporaire += occasionnelles[i];
     }
-    return temporaire; // ta fonction "total" te retourne un chiffre qui est égal à toutes les valeurs de ton tableau additionnées
+    return temporaire;
 }
 
+total();
 
 
+
+
+depense = depensefix + depensecour + total();
+/*
+document.getElementById("ok").addEventListener("click",
+    function(){
+    plusInput = plusInput.value;
+    plusInput = occasionnelles.push();
+    document.getElementById("dep").innerHTML = depensefix + depensecour + total();
+    });
+*/
+
+
+
+
+
+document.getElementById("dep").innerHTML = "total des dépences:"+ depense;
+
+
+
+
+
+var recet = ["salaires" , "aides/allocations" , "rentes" , "autre"];
+recet[0] = 1900;
+recet[1] = 0;
+recet[2] = 150;
+recet[3] = 0;
+
+function rec()
+{
+    var temporaire = 0;
+    for (var l = 0; l < recet.length; l++)
+    {
+        document.getElementById("rec").innerHTML= temporaire += recet[l];
+    }
+    return temporaire;
+}
+
+rec();
+/*var t;
+document.getElementById("oki").addEventListener("click", function(){
+    document.getElementById("re").value=t;
+    console.log(t);
+    occasionnelles.push(t);
+
+});
+*/
+recette=rec();
+
+
+
+document.getElementById("rest").innerHTML = recette-depense;
+
+document.getElementById("ok").addEventListener("click", function () {
+
+    var y =document.getElementById("depe").value;
+
+    if (y!==""){
+        occasionnelles.push("y");
+        document.getElementById("occa").innerHTML=total();
+        depense=depense+y;
+        console.log("depense");
+
+
+    }
+});
+total();
