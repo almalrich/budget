@@ -1,4 +1,5 @@
-var recette;/*je créer variable and tab*/
+var recette;
+/*je créer variable and tab*/
 var depense;
 var fixe = ["loyer et charge", "remboursement de credit", "eau gaz electricité", "telephone internet", "assurance habitation", "assurance véhicules", "mutuelle santé", "frais de garde", "impôts sur le revenu", "impôts locaux"];
 /*je renseigne leur valeur en decimal pour les somme*/
@@ -27,34 +28,31 @@ occasionnelles[0] = 150;
 occasionnelles[1] = 200;
 
 
-
-
+/* ici je reprend les valeurs que j'additionne pour avoir dep fixes /courantes*/
 var depensefix = document.getElementById("fix").innerHTML = fixe[0] + fixe[1] + fixe[2] + fixe[3] + fixe[4] + fixe[5] + fixe[6] + fixe[7] + fixe[8] + fixe[9];
 
 var depensecour = document.getElementById("courant").innerHTML = courantes[0] + courantes[1] + courantes[2];
 
 
-
-
-function total()
-{
-    var temporaire = 0;
-    for (var i = 0; i < occasionnelles.length; i++)
-    {
-        document.getElementById("occa").innerHTML= temporaire += occasionnelles[i];
-        document.getElementById("ok").addEventListener("click", function (){
-            occasionnelles.push(document.getElementById(i+total()));
+/* ici je fais une boucle pour pouvoir mettre mon .push sur occas*/
+function total() {
+    let temporaire = 0;
+    for (let i = 0; i < occasionnelles.length; i++) {
+        document.getElementById("occa").innerHTML = temporaire += occasionnelles[i];
+        document.getElementById("ok").addEventListener("click", function () {
+            let m = document.getElementById("depe").value;
+            occasionnelles.push(m);
 
         })
-    }
+
+
+    }/* je return temporaire pour reprendre chaque valeur de i*/
     return temporaire;
 }
 
 total();
 
-
-
-
+/* ici le total des depense avec la function total pour reprendre bien tout les input*/
 depense = depensefix + depensecour + total();
 /*
 document.getElementById("ok").addEventListener("click",
@@ -66,31 +64,26 @@ document.getElementById("ok").addEventListener("click",
 */
 
 
+document.getElementById("dep").innerHTML = "total des dépences:" + depense;
 
-
-
-document.getElementById("dep").innerHTML = "total des dépences:"+ depense;
-
-
-
-
-
-let recet = ["salaires" , "aides/allocations" , "rentes" , "autre"];
+/* les recette avec leur valeur*/
+let recet = ["salaires", "aides/allocations", "rentes", "autre"];
 recet[0] = 1900;
 recet[1] = 0;
 recet[2] = 150;
 recet[3] = 0;
 let y;
-function rec()
-{
+
+function rec() {
     var temporaire = 0;
-    for (var l = 0; l < recet.length; l++)
-    {
-        document.getElementById("rec").innerHTML= temporaire += recet[l];
-        document.getElementById("oki").addEventListener("click",function (){
-            document.getElementById("re").value=l
-        occasionnelles.push(document.getElementById(l+rec()));
-    })};
+    for (var l = 0; l < recet.length; l++) {
+        document.getElementById("rec").innerHTML = temporaire += recet[l];
+        document.getElementById("oki").addEventListener("click", function () {
+           y= document.getElementById("re").value ;
+            occasionnelles.push(document.getElementById(y));
+        })
+    }
+    ;
     return temporaire;
 }
 
@@ -103,24 +96,23 @@ document.getElementById("oki").addEventListener("click", function(){
 
 });
 */
-recette=rec();
+recette = rec();
 
 
+document.getElementById("rest").innerHTML = recette - depense;
 
-document.getElementById("rest").innerHTML = recette-depense;
+document.getElementById("oki").addEventListener("click", function () {
 
-document.getElementById("ok").addEventListener("click", function () {
+    let y = document.getElementById("re").value;
 
-    let y =document.getElementById("depe").value;
+    if (y !== "") {
 
-    if (y!==""){
+        document.getElementById("re").innerHTML = (recette = recette + y);
 
-        document.getElementById("depe").innerHTML=(depense=depense+y);
-
-        console.log("depense");
+        console.log("re");
         total()
 
     }
 });
 
-total();
+total()

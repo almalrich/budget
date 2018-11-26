@@ -38,3 +38,15 @@
     margin-top: 18%;
     left: 45%;
 }
+
+h1 {
+    display: flex;
+    justify-content: center;
+    background-color: gray;
+}
+
+#reste {
+    background-color: darkblue;
+    color: white;
+
+}
