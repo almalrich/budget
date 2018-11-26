@@ -1,8 +1,8 @@
 #depensesfix {
-   margin-top: 1%;
+    margin-top: 1%;
     position: absolute;
-    margin-left: 0%;
-    left: 0%;
+    margin-left: 0;
+    left: 0;
 }
 
 #couran {
@@ -16,13 +16,13 @@
 #occas {
     margin-top: 1%;
     position: absolute;
-    margin-right: 0%;
-    right: 0%;
+    margin-right: 0;
+    right: 0;
 }
 
 #dep {
     position: absolute;
-    left: 0%;
+    left: 0;
     margin-top: 7%;
 
 }
@@ -30,7 +30,7 @@
 #recet {
     position: absolute;
     margin-top: 10%;
-    left: 0%
+    left: 0;
 }
 
 #reste {
